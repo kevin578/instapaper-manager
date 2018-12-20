@@ -26,7 +26,7 @@ const scrapingSchedule = {
   Monday: ["middle-east-and-africa", "europe"],
   Tuesday: ["britain", "international", "business"],
   Wednesday: ["finance-and-economics", "science-and-technology"],
-  Thursday: [
+  ThursdayAM: [
     "books-and-arts",
     "economic-and-financial-indicators",
     "graphic-detail"
@@ -49,6 +49,7 @@ function getStories(currentDay) {
         $(".list__link").each(function(i, el) {
           const urlEnd = $(this).attr("href");
           const section = urlEnd.split("/")[1];
+
           if (scrapingSchedule[currentDay].includes(section)) {
             links.push(baseURL + urlEnd);
           }
