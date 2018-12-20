@@ -7,6 +7,11 @@ const express = require("express");
 require('dotenv').config()
 const app = express();
 
+
+app.get("/", (req, res)=> {
+  res.send("To send articles: https://instapaper-manager.herokuapp.com/sendArticles?day=EXAMPLE_DAY");
+})
+
 app.post("/sendArticles", (req, res) => {
   getStories(req.query.day).then(()=> {
     res.send("Articles sent");
